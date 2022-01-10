@@ -1,0 +1,36 @@
+Title: 
+  Valuing Questionnaire
+Data:
+  File is VQ.csv;
+Variable:
+  Names are 
+     vq_01 vq_02 vq_03 vq_04 vq_05 vq_06 vq_07 vq_08 vq_09 vq_10 ;
+usev
+vq_01
+vq_02
+vq_03
+vq_04
+vq_05
+vq_06
+vq_07
+vq_08
+vq_09
+vq_10
+;
+
+!categorical are
+!vq_01
+!vq_02
+!vq_03
+!vq_04
+!vq_05
+!vq_06
+!vq_07
+!vq_08
+!vq_09
+!vq_10
+!;
+
+Analysis: 
+  Type=Basic;  
+  !ROTATION=TARGET; ! cross-loadings are "targeted" to be zero with the '(~0)' command.

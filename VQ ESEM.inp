@@ -1,0 +1,40 @@
+Title: 
+  Valuing Questionnaire
+Data:
+  File is VQ.csv;
+Variable:
+  Names are 
+     vq_01 vq_02 vq_03 vq_04 vq_05 vq_06 vq_07 vq_08 vq_09 vq_10 ;
+usev
+vq_01
+vq_02
+vq_03
+vq_04
+vq_05
+vq_06
+vq_07
+vq_08
+vq_09
+vq_10
+;
+
+Analysis: 
+  ESTIMATOR=MLR;  ! robust maximum-likelihood estimator
+  ROTATION=TARGET; ! cross-loadings are "targeted" to be zero with the '(~0)' command.
+
+
+Model:
+f1 BY vq_01 vq_02 vq_06 vq_08 vq_10
+vq_03~0 vq_04~0 vq_05~0 vq_07~0 vq_09~0(*1);
+
+f2 BY vq_03 vq_04 vq_05 vq_07 vq_09
+vq_01~0 vq_02~0 vq_06~0 vq_08~0 vq_10~0(*1);
+
+
+OUTPUT:
+modindices(all);
+standardized;
+
+!SAVE:
+!file is VQ ESEM.txt;
+!save fscores;

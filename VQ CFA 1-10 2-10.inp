@@ -1,0 +1,38 @@
+Title: 
+  Valuing Questionnaire
+Data:
+  File is VQ.csv;
+Variable:
+  Names are 
+     vq_01 vq_02 vq_03 vq_04 vq_05 vq_06 vq_07 vq_08 vq_09 vq_10 ;
+usev
+vq_01
+vq_02
+vq_03
+vq_04
+vq_05
+vq_06
+vq_07
+vq_08
+vq_09
+vq_10
+;
+
+Analysis: 
+  ESTIMATOR=MLR;  
+  !ROTATION=TARGET; ! cross-loadings are "targeted" to be zero with the '(~0)' command.
+
+
+Model:
+f1 BY vq_01 vq_02 vq_06 vq_08 vq_10;
+f2 BY vq_03 vq_04 vq_05 vq_07 vq_09;
+vq_01 WITH vq_10;
+vq_02 WITH vq_10;
+
+OUTPUT:
+modindices(all);
+standardized;
+
+!SAVE:
+!file is VQ CFA 1-10 2-10.txt;
+!save fscores;
